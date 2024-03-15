@@ -1,6 +1,7 @@
 class MaptoModel
 {
-  MaptoModel(this.quotes,this.author,this.category)
+  String? quotes,author,category;
+  MaptoModel(this.quotes,this.author,this.category);
 
   factory MaptoModel.quotes(Map quotes)
   {
