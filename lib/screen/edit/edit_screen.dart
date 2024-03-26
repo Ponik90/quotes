@@ -36,6 +36,7 @@ class _EditScreenState extends State<EditScreen> {
   String bgimage = "assets/bgimage/bg1.jpg";
   String font = "";
   bool istext = true;
+  bool isimage =true;
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +59,14 @@ class _EditScreenState extends State<EditScreen> {
             ),
             child: Stack(
               children: [
-                Image.asset(
-                  bgimage,
-                  height: MediaQuery.sizeOf(context).width,
-                  width: MediaQuery.sizeOf(context).width,
-                  fit: BoxFit.fill,
+                Visibility(
+                  visible:  !isimage,
+                  child: Image.asset(
+                    bgimage,
+                    height: MediaQuery.sizeOf(context).width,
+                    width: MediaQuery.sizeOf(context).width,
+                    fit: BoxFit.fill,
+                  ),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -240,6 +244,7 @@ class _EditScreenState extends State<EditScreen> {
                             return InkWell(
                               onTap: () {
                                 setState(() {
+                                  isimage=!isimage;
                                   bgcolor = changecolor[index];
                                 });
                               },
